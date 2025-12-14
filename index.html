@@ -23,14 +23,27 @@ body {
     align-items: center;
 }
 
-.header h1 {
-    margin: 0;
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left a {
+    color: white;
+    text-decoration: none;
     font-size: 18px;
 }
 
-/* NUEVO: Logo en el Header */
+.header h1 {
+    margin: 0;
+    font-size: 18px;
+    flex-grow: 1; /* Permite que el título ocupe el espacio central */
+    text-align: center;
+}
+
 .header-logo {
-    height: 40px; /* Tamaño del logo */
+    height: 35px; /* Tamaño del logo */
     width: auto;
 }
 
@@ -55,7 +68,7 @@ body {
     margin-bottom: 18px;
 }
 
-/* TABLAS y BOTONES - Conservados */
+/* TABLAS y BOTONES */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -131,41 +144,47 @@ button {
     font-size: 14px;
 }
 
-.final-container {
+.final-info {
     display: flex;
-    justify-content: flex-end; 
-    align-items: center;
-    gap: 10px; 
-    margin: 8px 0;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
 }
 
-.final {
-    font-size: 22px;
-    color: white; 
-    background: #2c2c2e;
-    padding: 5px 10px;
-    border-radius: 6px;
+.nota-final-display {
+    text-align: left;
+}
+
+.nota-final-display span {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.final-grade {
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .aprobado {
-    color: #1ed760; /* Color verde para el check de aprobado */
-    font-size: 24px;
+    color: #1ed760; 
 }
 
 .reprobado {
-    color: #ff3b30; /* Color rojo para la X de reprobado */
-    font-size: 24px;
+    color: #ff3b30; 
 }
 
-/* CORRECCIÓN: Estilo para la Gestión (sin "Catatión:") */
-.gestion-info {
+/* Estilo para la Gestión */
+.gestion-input {
     background: #2c2c2e;
     padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 16px;
     font-size: 16px;
     font-weight: bold;
-    text-align: center; /* Centrar el texto de Gestión */
 }
 </style>
 </head>
@@ -173,7 +192,10 @@ button {
 <body>
 
 <div class="header">
-    <h1>Universidad del Valle</h1>
+    <div class="header-left">
+        <a href="#">&lt; Atrás</a>
+    </div>
+    <h1>Notas</h1>
     <img src="logo_univalle.png" alt="Logo Univalle" class="header-logo">
 </div>
 
@@ -203,8 +225,8 @@ button {
 
 <div class="app" id="app">
     <div class="container">
-        <div class="gestion-info">
-            Gestión 2/2025
+        <div class="gestion-input">
+            Gestión: 2/2025
         </div>
 
         <div class="card">
@@ -213,16 +235,21 @@ button {
                 <span class="grupo">Grupo: A</span>
             </div>
             
-            <div class="final-container">
-                <span class="final">82,0</span>
-                <span class="aprobado">✅</span>
+            <div class="final-info">
+                <div class="nota-final-display">
+                    <span>Nota Final</span>
+                    <div class="final-grade aprobado">
+                        82,0 
+                        <span class="aprobado">✅</span>
+                    </div>
+                </div>
+                <table>
+                    <tr><td>Parcial 1</td><td>78,0</td></tr>
+                    <tr><td>Parcial 2</td><td>85,0</td></tr>
+                    <tr><td>Parcial 3</td><td>82,0</td></tr>
+                    <tr><td>Exámen Final</td><td>90,0</td></tr>
+                </table>
             </div>
-            
-            <table>
-                <tr><td>Parcial 1</td><td>78,0</td></tr>
-                <tr><td>Parcial 2</td><td>85,0</td></tr>
-                <tr><td>Parcial 3</td><td>82,0</td></tr>
-            </table>
         </div>
 
         <div class="card">
@@ -231,16 +258,21 @@ button {
                 <span class="grupo">Grupo: A</span>
             </div>
             
-            <div class="final-container">
-                <span class="final">79,0</span>
-                <span class="aprobado">✅</span>
+            <div class="final-info">
+                <div class="nota-final-display">
+                    <span>Nota Final</span>
+                    <div class="final-grade aprobado">
+                        79,0 
+                        <span class="aprobado">✅</span>
+                    </div>
+                </div>
+                <table>
+                    <tr><td>Parcial 1</td><td>75,0</td></tr>
+                    <tr><td>Parcial 2</td><td>80,0</td></tr>
+                    <tr><td>Parcial 3</td><td>82,0</td></tr>
+                    <tr><td>Exámen Final</td><td>70,0</td></tr>
+                </table>
             </div>
-            
-            <table>
-                <tr><td>Parcial 1</td><td>75,0</td></tr>
-                <tr><td>Parcial 2</td><td>80,0</td></tr>
-                <tr><td>Parcial 3</td><td>82,0</td></tr>
-            </table>
         </div>
 
         <div class="card">
@@ -249,16 +281,21 @@ button {
                 <span class="grupo">Grupo: D</span>
             </div>
 
-            <div class="final-container">
-                <span class="final">87,0</span>
-                <span class="aprobado">✅</span>
+            <div class="final-info">
+                <div class="nota-final-display">
+                    <span>Nota Final</span>
+                    <div class="final-grade aprobado">
+                        87,0
+                        <span class="aprobado">✅</span>
+                    </div>
+                </div>
+                <table>
+                    <tr><td>Parcial 1</td><td>88,0</td></tr>
+                    <tr><td>Parcial 2</td><td>85,0</td></tr>
+                    <tr><td>Parcial 3</td><td>88,0</td></tr>
+                    <tr><td>Exámen Final</td><td>80,0</td></tr>
+                </table>
             </div>
-
-            <table>
-                <tr><td>Parcial 1</td><td>88,0</td></tr>
-                <tr><td>Parcial 2</td><td>85,0</td></tr>
-                <tr><td>Parcial 3</td><td>88,0</td></tr>
-            </table>
         </div>
 
         <div class="card">
@@ -267,16 +304,21 @@ button {
                 <span class="grupo">Grupo: B</span>
             </div>
 
-            <div class="final-container">
-                <span class="final">76,0</span>
-                <span class="aprobado">✅</span>
+            <div class="final-info">
+                <div class="nota-final-display">
+                    <span>Nota Final</span>
+                    <div class="final-grade aprobado">
+                        76,0
+                        <span class="aprobado">✅</span>
+                    </div>
+                </div>
+                <table>
+                    <tr><td>Parcial 1</td><td>72,0</td></tr>
+                    <tr><td>Parcial 2</td><td>78,0</td></tr>
+                    <tr><td>Parcial 3</td><td>80,0</td></tr>
+                    <tr><td>Exámen Final</td><td>75,0</td></tr>
+                </table>
             </div>
-
-            <table>
-                <tr><td>Parcial 1</td><td>72,0</td></tr>
-                <tr><td>Parcial 2</td><td>78,0</td></tr>
-                <tr><td>Parcial 3</td><td>80,0</td></tr>
-            </table>
         </div>
 
         <div class="card">
@@ -285,16 +327,21 @@ button {
                 <span class="grupo">Grupo: A</span>
             </div>
 
-            <div class="final-container">
-                <span class="final">84,0</span>
-                <span class="aprobado">✅</span>
+            <div class="final-info">
+                <div class="nota-final-display">
+                    <span>Nota Final</span>
+                    <div class="final-grade aprobado">
+                        84,0
+                        <span class="aprobado">✅</span>
+                    </div>
+                </div>
+                <table>
+                    <tr><td>Parcial 1</td><td>85,0</td></tr>
+                    <tr><td>Parcial 2</td><td>82,0</td></tr>
+                    <tr><td>Parcial 3</td><td>86,0</td></tr>
+                    <tr><td>Exámen Final</td><td>88,0</td></tr>
+                </table>
             </div>
-
-            <table>
-                <tr><td>Parcial 1</td><td>85,0</td></tr>
-                <tr><td>Parcial 2</td><td>82,0</td></tr>
-                <tr><td>Parcial 3</td><td>86,0</td></tr>
-            </table>
         </div>
 
         <div class="card">
@@ -303,16 +350,21 @@ button {
                 <span class="grupo">Grupo: D</span>
             </div>
             
-            <div class="final-container">
-                <span class="final">72,0</span> 
-                <span class="aprobado">✅</span>
+            <div class="final-info">
+                <div class="nota-final-display">
+                    <span>Nota Final</span>
+                    <div class="final-grade aprobado">
+                        72,0 
+                        <span class="aprobado">✅</span>
+                    </div>
+                </div>
+                <table>
+                    <tr><td>Parcial 1</td><td>68,0</td></tr>
+                    <tr><td>Parcial 2</td><td>70,0</td></tr>
+                    <tr><td>Parcial 3</td><td>78,0</td></tr>
+                    <tr><td>Exámen Final</td><td>75,0</td></tr>
+                </table>
             </div>
-
-            <table>
-                <tr><td>Parcial 1</td><td>68,0</td></tr>
-                <tr><td>Parcial 2</td><td>70,0</td></tr>
-                <tr><td>Parcial 3</td><td>78,0</td></tr>
-            </table>
         </div>
 
     </div>
